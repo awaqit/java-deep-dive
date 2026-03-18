@@ -19,6 +19,20 @@ java-deep-dive/
 
 - Java 21+
 - Gradle 8+
+- Docker (for Kafka, Kubernetes, Vault, Keycloak)
+
+## External Tools & Dependencies
+
+Each module has a dedicated `SETUP.md` with full installation instructions, Docker commands, and configuration details.
+
+| Module | External Tools | Dependencies | Setup Guide |
+|--------|---------------|--------------|-------------|
+| Month 1 — Java Foundations | JDK Mission Control, VisualVM, JITWatch, async-profiler | None (pure Java 21) | [SETUP.md](month-01-java-foundations/SETUP.md) |
+| Month 2 — Cloud-Native | Apache Kafka, Kafka UI, gRPC / protoc | Spring Boot, spring-kafka, grpc-netty | [SETUP.md](month-02-cloud-native/SETUP.md) |
+| Month 3 — Distributed Systems | Cassandra, etcd, MongoDB, NGINX, Resilience4j | None (pure Java 21) | [SETUP.md](month-03-distributed-systems/SETUP.md) |
+| Month 4 — Kubernetes | minikube / kind, kubectl, Helm, HashiCorp Vault, Lens | fabric8 kubernetes-client | [SETUP.md](month-04-kubernetes/SETUP.md) |
+| Month 5 — Real-Time Systems | Apache Kafka, async-profiler, Grafana + Prometheus | reactor-core, kafka-streams, spring-webflux | [SETUP.md](month-05-real-time-systems/SETUP.md) |
+| Month 6 — Security | HashiCorp Vault, Keycloak, OpenSSL, OWASP ZAP, Trivy | BouncyCastle, JJWT, spring-security | [SETUP.md](month-06-security-leadership/SETUP.md) |
 
 ## How to Run
 
