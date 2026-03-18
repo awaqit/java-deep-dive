@@ -1,0 +1,12 @@
+// Month 04 - Kubernetes
+// Topics: K8s Internals, Stateful Apps, Networking, Security (RBAC)
+
+dependencies {
+    // CONCEPT: fabric8 is the most popular Java client for Kubernetes API
+    // Uncomment when targeting a real K8s cluster (minikube, kind, or cloud)
+    // implementation 'io.fabric8:kubernetes-client:6.10.0'
+    // implementation 'io.fabric8:kubernetes-model-core:6.10.0'
+
+    // CONCEPT: Used for health check HTTP endpoints (lightweight alternative to Spring Boot)
+    // implementation 'com.sun.net.httpserver:http:20070405'  // built-in JDK
+}

@@ -1,0 +1,9 @@
+// Month 03 - Distributed Systems
+// Topics: CAP Theorem, Consensus (Raft), Sharding, Consistent Hashing, Load Balancing
+// Pure Java - all concepts implemented from scratch for deep understanding
+
+dependencies {
+    // All distributed systems concepts are implemented in pure Java
+    // This intentional choice forces understanding of the fundamentals
+    // rather than hiding complexity behind libraries
+}

@@ -1,0 +1,18 @@
+// Month 05 - Real-Time Systems
+// Topics: Kafka Streams, Reactive (Project Reactor), High-Performance, Disruptor
+
+dependencies {
+    // CONCEPT: Project Reactor is the reactive library used by Spring WebFlux
+    // Implements Reactive Streams specification (Publisher/Subscriber)
+    // Uncomment to run reactive examples
+    // implementation 'io.projectreactor:reactor-core:3.6.1'
+    // implementation 'io.projectreactor.netty:reactor-netty-core:1.1.14'
+
+    // CONCEPT: Kafka Streams for stateful stream processing topology
+    // Uncomment when Kafka is available
+    // implementation 'org.apache.kafka:kafka-streams:3.6.1'
+    // implementation 'org.apache.kafka:kafka-clients:3.6.1'
+
+    // CONCEPT: Spring WebFlux for reactive web applications
+    // implementation 'org.springframework.boot:spring-boot-starter-webflux:3.2.1'
+}

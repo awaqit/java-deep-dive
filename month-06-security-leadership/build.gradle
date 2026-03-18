@@ -1,0 +1,20 @@
+// Month 06 - Security & Tech Leadership
+// Topics: Zero Trust, mTLS, OAuth2, JWT, AES/RSA Encryption, Design Patterns, Leadership
+
+dependencies {
+    // CONCEPT: BouncyCastle provides advanced cryptographic algorithms beyond JDK defaults
+    // Used for RSA, advanced AES modes, certificate handling
+    // Uncomment for full cryptography examples
+    // implementation 'org.bouncycastle:bcprov-jdk18on:1.77'
+    // implementation 'org.bouncycastle:bcpkix-jdk18on:1.77'
+
+    // CONCEPT: JJWT is the most popular Java JWT library
+    // Supports JWT creation, signing, and validation
+    // implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+    // runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+    // runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+
+    // CONCEPT: Spring Security for OAuth2 and authentication
+    // implementation 'org.springframework.boot:spring-boot-starter-security:3.2.1'
+    // implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server:3.2.1'
+}

@@ -1,0 +1,7 @@
+rootProject.name = 'java-deep-dive'
+include 'month-01-java-foundations'
+include 'month-02-cloud-native'
+include 'month-03-distributed-systems'
+include 'month-04-kubernetes'
+include 'month-05-real-time-systems'
+include 'month-06-security-leadership'

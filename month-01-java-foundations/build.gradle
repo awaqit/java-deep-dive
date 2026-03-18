@@ -1,0 +1,8 @@
+// Month 01 - Java Foundations
+// Topics: JVM Memory, GC, JIT, Concurrency, NIO
+// No extra dependencies needed - pure Java 21
+
+dependencies {
+    // All examples use Java standard library only
+    // Java 21 features: Virtual Threads (Project Loom), Records, Sealed Classes, Pattern Matching
+}
