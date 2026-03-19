@@ -31,7 +31,7 @@ Each module has a dedicated `SETUP.md` with full installation instructions, Dock
 | Month 2 — Cloud-Native | Apache Kafka, Kafka UI, gRPC / protoc | Spring Boot, spring-kafka, grpc-netty | [SETUP.md](month-02-cloud-native/SETUP.md) |
 | Month 3 — Distributed Systems | Cassandra, etcd, MongoDB, NGINX, Resilience4j | None (pure Java 21) | [SETUP.md](month-03-distributed-systems/SETUP.md) |
 | Month 4 — Kubernetes | minikube / kind, kubectl, Helm, HashiCorp Vault, Lens | fabric8 kubernetes-client | [SETUP.md](month-04-kubernetes/SETUP.md) |
-| Month 5 — Real-Time Systems | Apache Kafka, async-profiler, Grafana + Prometheus | reactor-core, kafka-streams, spring-webflux | [SETUP.md](month-05-real-time-systems/SETUP.md) |
+| Month 5 — Real-Time Systems | Apache Kafka, async-profiler, Grafana + Prometheus + Loki, Jaeger (tracing) | reactor-core, kafka-streams, spring-webflux, micrometer, opentelemetry-sdk | [SETUP.md](month-05-real-time-systems/SETUP.md) |
 | Month 6 — Security | HashiCorp Vault, Keycloak, OpenSSL, OWASP ZAP, Trivy | BouncyCastle, JJWT, spring-security | [SETUP.md](month-06-security-leadership/SETUP.md) |
 
 ## How to Run
@@ -110,14 +110,20 @@ docker run -d -p 9092:9092 apache/kafka:latest
 ---
 
 ### Month 5 — Real-Time Systems
-> Goal: Stream processing, reactive programming, high-performance patterns
+> Goal: Stream processing, reactive programming, high-performance patterns, observability
 
 | Week | Topic | Key Files |
 |------|-------|-----------|
 | Week 17 | Kafka Streams | `KafkaStreamsDemo` |
 | Week 18 | Reactive Programming | `ReactiveStreamsDemo`, `BackpressureDemo` |
-| Week 19 | Reactive Web Client | `ReactiveWebClientDemo` |
+| Week 19 | Reactive Web Client + Observability | `ReactiveWebClientDemo`, `ObservabilityDemo` |
 | Week 20 | High-Performance Patterns | `HighFrequencyDemo`, `DisruptorPatternDemo` |
+
+**Observability topics covered in Week 19 (added):**
+- **Micrometer** — metrics instrumentation (counters, timers, gauges) exported to Prometheus
+- **OpenTelemetry** — distributed tracing across service boundaries (spans, trace context propagation)
+- **Structured logging** — JSON logs with trace/span IDs for correlation in Grafana/Loki
+- **Key questions to answer:** How do you measure Kafka consumer lag? How do you trace a request across 5 microservices? What SLOs do you put on a reactive pipeline?
 
 ---
 

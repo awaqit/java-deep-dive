@@ -8,6 +8,15 @@ Uncomment in `month-05-real-time-systems/build.gradle` based on what you want to
 dependencies {
     // Project Reactor — reactive programming (Mono/Flux)
     implementation 'io.projectreactor:reactor-core:3.6.1'
+
+    // Micrometer — metrics instrumentation (Prometheus export)
+    implementation 'io.micrometer:micrometer-core:1.12.2'
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.12.2'
+
+    // OpenTelemetry — distributed tracing
+    implementation 'io.opentelemetry:opentelemetry-api:1.34.1'
+    implementation 'io.opentelemetry:opentelemetry-sdk:1.34.1'
+    implementation 'io.opentelemetry:opentelemetry-exporter-otlp:1.34.1'
     implementation 'io.projectreactor.netty:reactor-netty-core:1.1.14'
 
     // Kafka Streams — stateful stream processing
@@ -173,7 +182,65 @@ open hf-flamegraph.html
 
 ---
 
-### 6. Grafana + Prometheus (optional — observability for streams)
+### 6. Observability Stack — Prometheus + Grafana + Loki + Jaeger (Week 19)
+> The full observability stack: metrics, logs, and traces in one Docker Compose
+
+```yaml
+# docker-compose-obs.yml
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    ports: ["9090:9090"]
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    ports: ["3000:3000"]
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+
+  loki:
+    image: grafana/loki:latest
+    ports: ["3100:3100"]
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686"   # Jaeger UI
+      - "4317:4317"     # OTLP gRPC receiver
+```
+```bash
+docker-compose -f docker-compose-obs.yml up -d
+
+# Grafana:    http://localhost:3000  (admin/admin)
+# Prometheus: http://localhost:9090
+# Jaeger UI:  http://localhost:16686
+```
+
+**prometheus.yml — scrape your Java app:**
+```yaml
+scrape_configs:
+  - job_name: 'java-app'
+    static_configs:
+      - targets: ['host.docker.internal:8080']
+    metrics_path: '/actuator/prometheus'
+```
+
+**Key things to observe in Week 19:**
+```bash
+# Watch Kafka consumer lag in Prometheus
+kafka_consumer_group_lag{group="streams-app"}
+
+# Check JVM memory in Grafana
+jvm_memory_used_bytes{area="heap"}
+
+# Trace a request end-to-end in Jaeger
+# Search by service name → see spans across all hops
+```
+
+### 7. Grafana + Prometheus (optional — observability for streams)
 
 ```bash
 # Start Prometheus + Grafana with Docker Compose
